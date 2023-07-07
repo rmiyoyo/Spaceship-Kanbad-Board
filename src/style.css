@@ -1,7 +1,29 @@
-body {
-    background-color: cyan;
+* {
+  font-family: 'Lato', sans-serif;
 }
 
-.hello {
-    color: red;
+body {
+  background-color: #3cb371;
+}
+
+.card-footer {
+  background: linear-gradient(to bottom right, #ff8a00, #e52e71);
+}
+
+.card {
+  width: 20rem;
+  height: 18rem;
+  margin-bottom: 7rem;
+}
+
+.row-spacing {
+  margin-top: 20px;
+}
+
+footer {
+  color: #fff;
+  padding: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
