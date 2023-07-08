@@ -1,7 +1,311 @@
-body {
-    background-color: cyan;
+* {
+  font-family: 'Lato', sans-serif;
 }
 
-.hello {
-    color: red;
+body {
+  background-color: #20b2aa;
+}
+
+.scn-scn {
+  display: flex;
+  flex-direction: column;
+}
+
+.ncs-ncs {
+  display: flex;
+  flex-direction: row;
+}
+
+ul {
+  list-style: none;
+}
+
+button:hover,
+.heart:hover {
+  cursor: pointer;
+}
+
+@media only screen and (min-width: 320px) {
+  header {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+    position: fixed;
+  }
+
+  .logo-box {
+    width: 30%;
+  }
+
+  .logo {
+    width: 100%;
+  }
+
+  ul {
+    width: 65%;
+    column-gap: 5%;
+  }
+
+  ul li:nth-child(1) {
+    text-decoration: underline;
+    color: #ffffed;
+  }
+
+  ul li a {
+    color: #2beb83;
+    text-decoration: none;
+  }
+
+  section.menu {
+    width: 100%;
+    padding-top: 60px;
+    gap: 10px;
+  }
+
+  .food-card {
+    width: 80%;
+    justify-content: center;
+    margin: 0 5%;
+    row-gap: 30px;
+  }
+
+  .image-box {
+    width: 100%;
+  }
+
+  .image-box img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .image-box img:hover {
+    width: 103%;
+    border-radius: 15px;
+  }
+
+  .ppup-area {
+    margin-top: -30px;
+    justify-content: space-between;
+  }
+
+  .ppup-area h2 {
+    font-size: 1.2rem;
+    width: 67%;
+  }
+
+  .ppup-area span {
+    margin-top: 10%;
+    font-size: 1.1rem;
+    color: #483d8b;
+  }
+
+  .press-feature {
+    justify-content: space-between;
+    margin-top: -20px;
+  }
+
+  button {
+    width: 30%;
+  }
+
+  .card-enclose {
+    width: 95%;
+    position: fixed;
+    top: 10px;
+    height: 98%;
+    background-color: white;
+    align-items: center;
+    margin: 0 2.5% 0 2.5%;
+    border-radius: 20px;
+    z-index: 10;
+    overflow-y: auto;
+    padding-bottom: 20px;
+    border: 2px solid #00ff7f;
+  }
+
+  i.minimize-card:hover {
+    cursor: pointer;
+  }
+
+  .card-enclose h2 {
+    font-size: 1.2rem;
+  }
+
+  h2.enter-opinion {
+    margin-top: 30px;
+  }
+
+  .popup-window i {
+    margin: 15px 10% 15px 90%;
+  }
+
+  .food-drn {
+    width: 100%;
+    align-items: center;
+  }
+
+  .expand-box {
+    width: 90%;
+    align-items: center;
+  }
+
+  img.expand-photo {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  h2.expand-id {
+    margin-top: 10px;
+  }
+
+  .food-dscrptn {
+    display: grid;
+    grid-template-columns: auto auto;
+    width: 90%;
+    margin-top: 10px;
+  }
+
+  .food-dscrptn span {
+    font-weight: bolder;
+  }
+
+  .recipeArea {
+    grid-column: 1 / span 2;
+    margin-top: 10px;
+    text-align: justify;
+  }
+
+  .opinion-area {
+    display: flex;
+    margin-top: 30px;
+    width: 90%;
+    justify-content: center;
+  }
+
+  .opinion-scn p {
+    font-size: 0.9rem;
+    margin-top: 5px;
+    font-style: italic;
+  }
+
+  .add-opinion {
+    width: 100%;
+    align-items: center;
+  }
+
+  form.enter-opinion {
+    width: 90%;
+    row-gap: 5px;
+  }
+
+  input.user-name {
+    height: 25px;
+  }
+
+  textarea.insights {
+    height: 60px;
+  }
+
+  input.user-name:focus,
+  textarea.insights:focus {
+    outline-color: #00ff7f;
+    padding: 3%;
+  }
+
+  ::placeholder {
+    padding-left: 2%;
+  }
+}
+
+@media only screen and (min-width: 375px) {
+  header ul {
+    width: 60%;
+    column-gap: 5%;
+    margin-left: 15%;
+  }
+
+  .ppup-area h2 {
+    width: 70%;
+  }
+}
+
+@media only screen and (min-width: 425px) {
+  header ul {
+    width: 60%;
+    column-gap: 5%;
+    margin-left: 18%;
+  }
+
+  section.menu {
+    padding-top: 80px;
+  }
+
+  .ppup-area h2 {
+    width: 75%;
+  }
+
+  button {
+    width: 20%;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .logo {
+    width: 90%;
+  }
+
+  header ul {
+    column-gap: 5%;
+    margin-left: 40%;
+  }
+
+  section.menu {
+    width: 100%;
+    padding-top: 100px;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-template-columns: auto auto;
+  }
+
+  button {
+    width: 25%;
+  }
+
+  /* Styling popup window start */
+  button.your-opionion {
+    width: 12%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  section.menu {
+    width: 100%;
+    padding-top: 120px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .food-drn {
+    width: 90%;
+    flex-direction: column;
+    column-gap: 4%;
+  }
+
+  .expand-box {
+    width: 45%;
+  }
+
+  .add-opinion {
+    width: 80%;
+  }
+}
+
+footer {
+  color: #fff;
+  padding: 10px;
+  left: 0;
+  bottom: 0;
+  position: relative;
 }
