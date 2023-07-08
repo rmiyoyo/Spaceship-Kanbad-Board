@@ -1,52 +1,60 @@
 import './style.css';
-import fetchMealData from './modules/api.js';
-import createCard from './modules/card.js';
-import createModal from './modules/modal.js';
+import {
+  fetchFoodInfo, enterMeals, oneLike, fetchInfo, showInfo, mealsnumber, showMeals,
+  expandedCard, warningArea, opinionCount, fetchOpinions, fillOpinions, opinionsNumber,
+  opinionQty,
+} from './modules/card.js';
 
-async function fetchAndPopulateCards() {
-  const mealData = await fetchMealData();
-  const cardsContainer = document.getElementById('cardsContainer');
-  let row = document.createElement('div');
-  row.classList.add('row');
-  mealData.forEach((meal, index) => {
-    const card = createCard(meal);
-    row.appendChild(card);
-    if ((index + 1) % 3 === 0) {
-      cardsContainer.appendChild(row);
-      row = document.createElement('div');
-      row.classList.add('row');
+const foodDescr = await fetchFoodInfo();
+const metricsInfo = await fetchInfo();
+enterMeals(foodDescr);
+const opinionsNo = await mealsnumber();
+showMeals(opinionsNo);
+foodDescr.forEach((element) => {
+  showInfo(metricsInfo, `M${element.idMeal}`);
+});
+
+const mealArea = document.querySelector('.menu');
+mealArea.addEventListener('click', async (e) => {
+  e.preventDefault();
+  if (e.target && e.target.matches('i.heart')) {
+    const uniqueID = e.target.id;
+    await oneLike(uniqueID);
+    const metricsInfo = await fetchInfo();
+    showInfo(metricsInfo, uniqueID);
+  } else if (e.target && e.target.matches('button.comment')) {
+    const uniqueID = e.target.id;
+    const idMeal = uniqueID.replace('opinionFtr', '');
+    expandedCard(foodDescr, idMeal);
+    const metricID = uniqueID.replace('opinionFtr', 'M');
+    const nbComments = await opinionsNumber(metricID);
+    opinionQty(nbComments);
+    const commentData = await fetchOpinions(metricID);
+    if (commentData.length) {
+      fillOpinions(commentData);
     }
-
-    /**
-     * Cards are rendered with images, names and like buttons successfully.
-     * Since there's only 10 pictures in the array, we only need 6 or nice if we wanna be fancy.
-     * Below is a 'mock implementation of the adding comments button and modal.
-     */
-
-    const modal = createModal(meal);
-    document.body.appendChild(modal);
-
-    const commentButton = card.querySelector('.btn-comment');
-
-    // Add click event listener to open the modal
-    commentButton.addEventListener('click', () => {
-      // We're getting the modal based on the meal id
-      const modalId = `modal${meal.idMeal}`;
-      const modalElement = document.getElementById(modalId);
-
-      /* Open the modal with show method.
-      //referencing the bootstrap library, for the modals
-      */
-      const bootstrapModal = new bootstrap.Modal(modalElement);
-
-      bootstrapModal.show();
+    const submitCommentBtn = document.querySelector('button.your-opionion');
+    submitCommentBtn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      const userName = document.querySelector('input.user-name').value;
+      const insights = document.querySelector('textarea.insights').value;
+      if (!userName || !insights) {
+        warningArea(userName, insights);
+      }
+      await opinionCount(metricID, userName, insights);
+      document.querySelector('input.user-name').value = '';
+      document.querySelector('textarea.insights').value = '';
+      document.querySelector('div.opinion-scn').innerHTML = '';
+      const commentData = await fetchOpinions(metricID);
+      fillOpinions(commentData);
+      const nbComments = await opinionsNumber(metricID);
+      opinionQty(nbComments);
     });
-  });
-
-  // Adding a row every after 3 items have been rendered
-  if (row.childElementCount > 0) {
-    cardsContainer.appendChild(row);
   }
-}
-
-fetchAndPopulateCards();
+});
+const popupWindow = document.querySelector('.popup-window');
+popupWindow.addEventListener('click', (e) => {
+  if (e.target && e.target.matches('i.minimize-card')) {
+    popupWindow.innerHTML = '';
+  }
+});

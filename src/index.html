@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="twitter:card" content="summary_large_image">
+    <script src="https://kit.fontawesome.com/4a3fcfc5e4.js" crossorigin="anonymous"></script>
     <title>Cooking Masters</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"></script>
@@ -23,19 +25,24 @@
                         <a class="nav-link" href="#about">About</a>
                         <a class="nav-link" href="#recipes">Recipes</a>
                         <a class="nav-link" href="#blog">Blog</a>
+                        <li class="nav-link meals-num">Meals(0)</li>
                     </div>
                 </div>
             </div>
         </nav>
     </header>
-    <main class="d-flex justify-content-center">
-        <div class="container mt-4">
-            <div class="row row-spacing" id="cardsContainer"></div>
-        </div>
-    </main>
+    <section class="menu scn-scn">
+        <!-- This content is dynamically generated -->
+    </section>
+
+    <div class="popup-window scn-scn">
+        <!-- This content is dynamically generated -->
+    </div>
     <footer class="container-fluid bg-secondary text-white text-center p-3">
         <p>&copy; 2023 Cooking Masters Sive and Raphael. All rights reserved.</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="index.js" type="module"></script>
 </body>
 
