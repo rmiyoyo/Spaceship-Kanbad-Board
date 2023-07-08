@@ -115,7 +115,7 @@ npm install --save-dev stylelint@13.x stylelint-scss@3.xstylelint-config-standar
 
 ### Usage
 
-To run the project:
+To run project:
 
 ```bash
 npm start
