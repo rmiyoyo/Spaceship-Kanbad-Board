@@ -16,8 +16,8 @@ export default function createModal(meal) {
           <div class="row">
             <div class="col-md-6">
               <img src="${
-                meal.strMealThumb
-              }" class="img-fluid rounded mb-3" alt="Food Image">
+  meal.strMealThumb
+}" class="img-fluid rounded mb-3" alt="Food Image">
               <div class="category-container jumbotron mb-3">
                 <h5 class="category-title">Category:</h5>
                 <p class="category">${meal.strCategory}</p>
@@ -25,8 +25,8 @@ export default function createModal(meal) {
               <div class="category-container jumbotron mb-3">
                 <h5 class="category-title">Tags:</h5>
                 <p class="category">${
-                  meal.strTags ? meal.strTags.split(',').join(', ') : ''
-                }</p>
+  meal.strTags ? meal.strTags.split(',').join(', ') : ''
+}</p>
               </div>
               <div class="category-container jumbotron mb-3">
                 <h5 class="category-title">YouTube URL:</h5>
