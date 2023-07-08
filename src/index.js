@@ -1,7 +1,18 @@
 import './style.css';
 import {
-  fetchFoodInfo, enterMeals, oneLike, fetchInfo, showInfo, mealsnumber, showMeals,
-  expandedCard, warningArea, opinionCount, fetchOpinions, fillOpinions, opinionsNumber,
+  fetchFoodInfo,
+  enterMeals,
+  oneLike,
+  fetchInfo,
+  showInfo,
+  mealsnumber,
+  showMeals,
+  expandedCard,
+  warningArea,
+  opinionCount,
+  fetchOpinions,
+  fillOpinions,
+  opinionsNumber,
   opinionQty,
 } from './modules/card.js';
 

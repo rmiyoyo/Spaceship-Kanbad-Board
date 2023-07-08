@@ -1,5 +1,7 @@
 export const fetchFoodInfo = async () => {
-  const request = new Request('https://themealdb.com/api/json/v1/1/search.php?f=c');
+  const request = new Request(
+    'https://themealdb.com/api/json/v1/1/search.php?f=c',
+  );
   const response = await fetch(request);
   const data = await response.json();
   return data.meals;
@@ -25,14 +27,18 @@ export const enterMeals = async (foodDescr) => {
 };
 
 export const createInstance = async () => {
-  const request = new Request('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/');
+  const request = new Request(
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/',
+  );
   await fetch(request, {
     method: 'POST',
   });
 };
 
 export const oneLike = async (uniqueID) => {
-  const request = new Request('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IJ8iLiH4qdPujPaGR8ab/likes/');
+  const request = new Request(
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IJ8iLiH4qdPujPaGR8ab/likes/',
+  );
   await fetch(request, {
     headers: {
       'Content-type': 'application/json',
@@ -45,7 +51,9 @@ export const oneLike = async (uniqueID) => {
 };
 
 export const fetchInfo = async () => {
-  const request = new Request('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IJ8iLiH4qdPujPaGR8ab/likes/');
+  const request = new Request(
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IJ8iLiH4qdPujPaGR8ab/likes/',
+  );
   const response = await fetch(request);
   const data = await response.json();
   return data;
@@ -62,7 +70,9 @@ export const showInfo = async (metricsInfo, metricID) => {
 };
 
 export const mealsnumber = async () => {
-  const request = new Request('https://themealdb.com/api/json/v1/1/search.php?f=c');
+  const request = new Request(
+    'https://themealdb.com/api/json/v1/1/search.php?f=c',
+  );
   const response = await fetch(request);
   const data = await response.json();
   return data.meals.length;
@@ -134,7 +144,9 @@ export const warningArea = (userName, insights) => {
 };
 
 export const opinionCount = async (id, userName, insights) => {
-  const request = new Request('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IJ8iLiH4qdPujPaGR8ab/comments');
+  const request = new Request(
+    'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IJ8iLiH4qdPujPaGR8ab/comments',
+  );
   await fetch(request, {
     headers: {
       'Content-type': 'application/json',
@@ -149,7 +161,9 @@ export const opinionCount = async (id, userName, insights) => {
 };
 
 export const fetchOpinions = async (id) => {
-  const request = new Request(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IJ8iLiH4qdPujPaGR8ab/comments?item_id=${id}`);
+  const request = new Request(
+    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IJ8iLiH4qdPujPaGR8ab/comments?item_id=${id}`,
+  );
   const response = await fetch(request);
   const data = await response.json();
   return data;
@@ -167,7 +181,9 @@ export const fillOpinions = (data) => {
 };
 
 export const opinionsNumber = async (id) => {
-  const request = new Request(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IJ8iLiH4qdPujPaGR8ab/comments?item_id=${id}`);
+  const request = new Request(
+    `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/IJ8iLiH4qdPujPaGR8ab/comments?item_id=${id}`,
+  );
   const response = await fetch(request);
   const data = await response.json();
   let a = 0;

@@ -26,7 +26,6 @@ button:hover,
 }
 
 @media only screen and (min-width: 320px) {
-
   header {
     width: 100%;
     justify-content: space-between;
@@ -98,7 +97,7 @@ button:hover,
   .ppup-area span {
     margin-top: 10%;
     font-size: 1.1rem;
-    color: #483D8B;
+    color: #483d8b;
   }
 
   .press-feature {
@@ -122,7 +121,7 @@ button:hover,
     z-index: 10;
     overflow-y: auto;
     padding-bottom: 20px;
-    border: 2px solid #00FF7F;
+    border: 2px solid #00ff7f;
   }
 
   i.minimize-card:hover {
@@ -135,6 +134,11 @@ button:hover,
 
   h2.enter-opinion {
     margin-top: 30px;
+  }
+
+  .popup-window {
+    background-color: #00ff7f;
+    width: 70%;
   }
 
   .popup-window i {
@@ -210,7 +214,7 @@ button:hover,
 
   input.user-name:focus,
   textarea.insights:focus {
-    outline-color: #00FF7F;
+    outline-color: #00ff7f;
     padding: 3%;
   }
 
